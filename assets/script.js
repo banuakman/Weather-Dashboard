@@ -1,21 +1,32 @@
 // DATA ============================================================
-// // global variable or starting data
-var APIKey = "c344baf284cfbf83abc80c8a68d21ea2";
 
+// // global variable or starting data
+APIkey = "c344baf284cfbf83abc80c8a68d21ea2"
+cityInput = "Ankara"
 // FUNCTIONS=========================================================
 
-// Call current data
-    // api.openweathermap.org/data/2.5/weather?q= + {city name} + &appid= + {API key} + &units=imperial
+// currentDay function with cityInput
+// function currentDay(cityInput) {
+    // Call current data
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial&appid=" + APIkey;
+    // Ajax Call
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
 
-// Append the current weather for that city
-    // the city name, 
-    // the date
-    // an icon representation of weather conditions
-    // the temperature 
-    // the humidity
-    // the wind speed
-    // the UV index
-        // color that indicates whether the conditions are favorable - green, moderate - yellow, or severe - red
+    // Append the current weather for that city
+        // the city name, 
+        // the date
+        // an icon representation of weather conditions
+        // the temperature 
+        // the humidity
+        // the wind speed
+        // the UV index
+            // color that indicates whether the conditions are favorable - green, moderate - yellow, or severe - red
+        });
+// }
 
 // Call 5 day forecast data
     // api.openweathermap.org/data/2.5/forecast?q= + {city name} + &appid= + {API key} + &units=imperial
