@@ -17,17 +17,23 @@ function currentDay(cityInput) {
       }).then(function(response) {
         console.log(response);
     // Append the current weather for that city
-        // the city name,
+        // the city name & date
         var h2Element = $("<h4>");
         h2Element.attr("class", "cityName");
         $('section.currentWeather').append(h2Element);
         $(".cityName").text(response.name + " - " + currentDate);
-        // the date
         // an icon representation of weather conditions
-        // the temperature 
-        // the humidity
-        // the wind speed
-        // the UV index
+        // new paragraf 
+        var ulElement = $("<ul>");
+        ulElement.attr("class", "current");
+        $('section.currentWeather').append(ulElement);
+        // add temperature
+        $(".current").append("<li>" + "Temperature: " + response.main.temp + " °F" + "</li>");
+        // add humidity
+        $(".current").append("<li>" + "Humidity: " + response.main.humidity + "</li>");
+        // add wind speed
+        $(".current").append("<li>" + "Wind Speed: " + response.wind.speed + "</li>");
+        // add UV index
             // color that indicates whether the conditions are favorable - green, moderate - yellow, or severe - red
         });
 }
